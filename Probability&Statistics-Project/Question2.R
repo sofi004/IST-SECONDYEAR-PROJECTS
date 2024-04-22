@@ -4,10 +4,10 @@ library(ggplot2)
 # Read the CSV file
 data <- read.csv("https://web.tecnico.ulisboa.pt/~paulo.soares/pe/projeto/master.csv")
 
-# selects data referring to the year 1986 and the age group 25-34 years
+# Selects data referring to the year 1986 and the age group 25-34 years
 selected_data <- subset(data, year == 1986 & age == "25-34 years")
 
-# Create a scatter plot
+# Create graph
 ggplot(selected_data, aes(x = country, y = `suicides.100k.pop`, fill = sex)) +
   geom_boxplot() +
   labs(title = "Comparison of suicides per 100k inhabitants by Gender and Country (1986)",

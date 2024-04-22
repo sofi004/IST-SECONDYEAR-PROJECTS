@@ -7,7 +7,7 @@ data <- read.csv("https://web.tecnico.ulisboa.pt/~paulo.soares/pe/projeto/Paises
 # Select countries from Europe and Americas continents
 selected_data <- subset(data, Continent %in% c("Europe", "Americas"))
 
-# Create a scatter plot
+# Create graph
 ggplot(selected_data, 
     aes(x = log(GDP), y = HCI, label = Country, color = Continent)) +
   geom_point() +
