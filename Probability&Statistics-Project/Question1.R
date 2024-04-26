@@ -19,4 +19,3 @@ ggplot(selected_data,
     x = "GDP per capita",
     y = "Human Capital Index") +
   theme_minimal()
-  theme(plot.title = element_text(hjust = 0.5))

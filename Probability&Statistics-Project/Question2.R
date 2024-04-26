@@ -14,3 +14,4 @@ ggplot(selected_data, aes(x = sex, y = `suicides.100k.pop`, fill = sex)) +
   labs(title = "Comparison of Suicides per 100k Inhabitants by Gender (1986)",
        x = "Gender", y = "Suicides per 100k Inhabitants",
        fill = "Gender")
+       theme_minimal()
