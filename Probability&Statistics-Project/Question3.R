@@ -1,10 +1,11 @@
+# Load necessary packages
 library(ggplot2)
 library(readxl)
 
-# Read the data
+# Read the excel file
 data <- read_excel("/home/sofia/Downloads/electricity.xlsx", sheet = "electricity_production")
 
-# # Selects data since 2015 for the countries "IEA Total" , "Latvia" and "Italy"
+# Selects data since 2015 for the countries "IEA Total" , "Latvia" and "Italy"
 selected_data <- subset(data, YEAR >= 2015 & (COUNTRY == "IEA Total" | COUNTRY == "Latvia" | COUNTRY == "Italy"))
 
 # Calculate the proportion of electricity produced from renewable sources relative to total electricity production for each month and for the countries "IEA Total", "Latvia", and "Italy"
@@ -27,7 +28,7 @@ for (country in c("IEA Total", "Latvia", "Italy")) {
   }
 }
 
-# Reorder the levels of the variable TIME
+# Order the data frame by time
 df_merge_proportions$TIME <- factor(df_merge_proportions$TIME, levels = unique(selected_data$TIME))
 
 # Create graph
