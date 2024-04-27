@@ -37,5 +37,5 @@ ggplot(df_merge_proportions, aes(x = TIME, y = Renewable_Proportions, color = CO
   scale_y_continuous(limits = c(0, 100)) +
   scale_color_manual(values = c("IEA Total" = "blue", "Latvia" = "red", "Italy" = "green")) +
   guides(color = guide_legend(title = "Country")) +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 5)) +
-  theme_minimal()
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 5)) 
