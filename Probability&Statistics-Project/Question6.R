@@ -1,26 +1,25 @@
-rm(list=ls())
+a <- 4
+n <- 30
+seed <- 1948
+num_samples <- 1000
+rate <- 1/a
+scale <- 1/4
 
-set.seed(1973) #semente
-a <- 4 #valor esperado
-n <- 40 #dimensão da amostra
+set.seed(1948)
 
-# Valor Simulado:
+y_larger_than_90_count <- 0
+for (i in 1:num_samples) {
+  Xs <- rexp(n, rate=rate)
+  Y <- sum(Xs)
+  if (Y > 90) {
+    y_larger_than_90_count <- y_larger_than_90_count + 1
+  }
+}
+proportion <- y_larger_than_90_count / num_samples
+exact <- 1 - pgamma(90, 30, rate=1/4)
 
-samples <- matrix(rexp(1000 * n, rate = 1/a), nrow = 1000)
-
-Y_simulated <- rowSums(samples)
-
-valor_simulado <- mean(Y_simulated > 126)
-
-# Valor Exato:
-
-valor_exato <- 1 - pgamma(126, shape = n, scale = 4) #escala 1/4
-
-# Diferença absoluta entre os valores, multiplicada por 100 e arredondada a 4 casas decimais:
-
-diferenca <- abs(valor_simulado - valor_exato) * 100
-resultado_final <- round(diferenca, 4)
-
-# Resultado:
-resultado_final
-
+diff <- abs(proportion - exact)
+diff
+result_percentage <- diff * 100
+result_percentage
+round(result_percentage, 4)
